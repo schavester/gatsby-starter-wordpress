@@ -1,0 +1,52 @@
+.header {
+    text-align: center;
+}
+
+.header_img {
+    background-image: url("../img/TitleBackground.jpg");
+    height: 15rem;
+}
+
+.title {
+    color: white;
+    font-size: 2rem;
+    padding: 1.5rem;
+}
+
+.subtitle {
+    color: white;
+    font-size: 1rem;
+}
+
+.icon {
+    color: black;
+    font-size: 1.5rem;
+}
+
+.circleIcon {
+    color: white;
+    align-content: center;
+}
+
+.icon:hover {
+    opacity: 0.7;
+}
+
+.socialMediaButtonRow {
+    padding: 1.5rem;
+}
+
+.iconButton {
+    margin-right: 1.5rem;
+}
+
+.navBar {
+    align-content: center;
+}
+
+.navBarOption {
+    background-color: #1a1717;
+    padding: 0.5rem 1rem 0.5rem;
+    margin-right: 0.5rem;
+    border-style: solid;
+}

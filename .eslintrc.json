@@ -6,7 +6,11 @@
     "react/prefer-stateless-function": "off",
     "react/require-default-props": "off",
     "react/prop-types": "off",
-    "react/no-danger": "off"
+    "react/no-danger": "off",
+    "react/jsx-indent": "off",
+    "react/jsx-tag-spacing": "off",
+    "react/jsx-indent-props": "off",
+    "no-console": "off"
   },
   "settings": {
     "import/core-modules": []
