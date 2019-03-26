@@ -7,7 +7,7 @@ module.exports = {
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sass',
         {
-            rresolve: 'gatsby-source-wordpress',
+            resolve: 'gatsby-source-wordpress',
             options: {
                 baseUrl: '1947project.hiddenhistoryblogs.com',
                 hostingWPCOM: false,
