@@ -7,13 +7,18 @@ module.exports = {
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sass',
         {
-            resolve: 'gatsby-source-wordpress',
+            rresolve: 'gatsby-source-wordpress',
             options: {
-                baseUrl: 'localhost/wp',
+                baseUrl: '1947project.hiddenhistoryblogs.com',
                 hostingWPCOM: false,
                 protocol: 'http',
                 useACF: false,
                 verboseOutput: true,
+			auth: {
+		      htaccess_user: "rest",
+		      htaccess_pass: "8JhYLZ83t7aBQ",
+		      htaccess_sendImmediately: false
+    					}	
             },
         },
         'gatsby-plugin-sharp',
