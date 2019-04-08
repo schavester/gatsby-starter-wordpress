@@ -10,6 +10,7 @@
     "react/jsx-indent": "off",
     "react/jsx-tag-spacing": "off",
     "react/jsx-indent-props": "off",
+    "react/forbid-prop-types": "off",
     "no-console": "off"
   },
   "settings": {

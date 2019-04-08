@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
-        title: 'Title from siteMetaData',
-        subtitle: 'Subtitle  from siteMetaData'
+        title: '1947 Project',
+        subtitle: 'Los Angeles De-Mythified'
     },
     plugins: [
         'gatsby-plugin-react-helmet',

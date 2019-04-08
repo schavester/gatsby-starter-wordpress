@@ -11,8 +11,7 @@ export const BlogPostTemplate = ({
   title,
   date,
   author,
-}) => {
-  return (
+}) => (
     <section className="section">
       <div className="container content">
         <div className="columns">
@@ -23,7 +22,9 @@ export const BlogPostTemplate = ({
             <div dangerouslySetInnerHTML={{ __html: content }} />
             <div style={{ marginTop: `4rem` }}>
               <p>
-                {date} - posted by{' '}
+                {date}
+                 - posted by
+                 {' '}
                 <Link to={`/author/${author.slug}`}>{author.name}</Link>
               </p>
               {categories && categories.length ? (
@@ -58,7 +59,6 @@ export const BlogPostTemplate = ({
       </div>
     </section>
   )
-}
 
 BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,

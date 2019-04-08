@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-export const PageTemplate = ({ title, content }) => {
-  return (
+export const PageTemplate = ({ title, content }) => (
     <section className="section section--gradient">
       <div className="container">
         <div className="columns">
@@ -23,7 +22,6 @@ export const PageTemplate = ({ title, content }) => {
       </div>
     </section>
   )
-}
 
 PageTemplate.propTypes = {
   title: PropTypes.string.isRequired,

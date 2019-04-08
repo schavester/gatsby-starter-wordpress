@@ -23,8 +23,10 @@ const NavBar = () => (
     render={data => (
         <div className={styles.header}>
             <div className={styles.header_img}>
-              <div className={styles.title}>
-                  {data.site.siteMetadata.title}
+              <div className={styles.title_container}>
+                  <Link className={styles.title} to="/" title={data.site.siteMetadata.title}>
+                    {data.site.siteMetadata.title}
+                  </Link>
               </div>
               <div className={styles.subtitle}>
                   {data.site.siteMetadata.subtitle}
@@ -50,9 +52,10 @@ const NavBar = () => (
                 </a>
               </div>
               <div className={styles.navBar}>
-                <Link className={styles.navBarOption} to="/about">About</Link>
+                <Link className={styles.navBarOption} to="/1947project-mission-statement">About</Link>
                 <Link className={styles.navBarOption} to="/authors">Authors</Link>
                 <Link className={styles.navBarOption} to="/timetravelblogs">Our Time Travel Blogs</Link>
+                <Link className={styles.navBarOption} to="/blog">Blog</Link>
               </div>
             </div>
         </div>
