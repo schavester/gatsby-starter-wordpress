@@ -42,14 +42,21 @@ export default class IndexPage extends React.Component {
                 <Link className={styles.inLine_Link} to={`/author/${post.author.slug}`}>
                   {post.author.name}
                 </Link>
-                /
-                {post.categories.map(category => (
+                {` / `}
+                {post.categories.map((category, index) => {
+                  let comma = ""
+                  if (index > 0) {
+                    comma = ", "
+                  }
+                  return (
                   <span key={`${post.id}-${category.id}`}>
+                    {comma}
                     <Link className={styles.inLine_Link} to={`/category/${category.slug}`}>
                       {category.name}
                     </Link>
                   </span>
-                ))}
+                  )}
+                )}
               </div>
               <div>
                 <Link className={`${styles.post_title} ${styles.inLine_Link}`} to={post.slug}>

@@ -1,0 +1,46 @@
+.disabled {
+    pointer-events:none;
+    background-color: #bbb38f;
+    padding: 0.25rem 0.5rem 0.25rem;
+    margin-right: 0.5rem;
+}
+
+.active {
+    background-color: #bbb38f;
+    padding: 0.25rem 0.5rem 0.25rem;
+    margin-right: 0.5rem;
+}
+
+.pagination {
+    background-color: #bbb38f;
+    padding: 0.25rem 0.5rem 0.25rem;
+    margin-right: 0.5rem;
+}
+
+.link {
+    color: #5f4b01 !important;
+    font-weight: bold;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.linkCurrent {
+    color: #f5c000 !important;
+    font-weight: bold;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.linkDisabled {
+    color: #8d6f00 !important;
+    font-weight: bold;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+

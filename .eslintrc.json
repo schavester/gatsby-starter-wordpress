@@ -12,7 +12,8 @@
     "react/jsx-indent-props": "off",
     "react/forbid-prop-types": "off",
     "no-console": "off",
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "react/jsx-one-expression-per-line": "off"
   },
   "settings": {
     "import/core-modules": []
