@@ -1,18 +1,58 @@
-@import "~bulma/sass/utilities/initial-variables"
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans)
 
-Config vars
-$kaldi-red: #FD461E
-$kaldi-red-invert: #fff
-
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
-
-body
-  font-family: "Josefin Sans", sans-serif !important
-  color: #888 !important
+$font-stack: "Josefin Sans", sans-serif;
+  
+html, body
+  font-family: $font-stack
+  color: #888
+  margin: 0
+  padding: 0
 
 a
   color: #F9966B !important
+  text-decoration: none
+
+img
+  padding: 1px
+  margin-top: 5px
+  margin-right: 15px
+  border: 2px solid #9899A3
+  background-color: #021a40
+  box-shadow: -2px 2px 16px 5px rgba(0,0,0,0.27)
+  max-width: 100%
+  box-sizing: border-box
+
+p
+  margin: .2em 0 2em
+  line-height: 170%
+  padding: 0
+  display: block
+  margin-block-start: 1em
+  margin-block-end: 1em
+  margin-inline-start: 0px
+  margin-inline-end: 0px
+  font-family: sans-serif
+  color: #888
+
+h1
+  font-weight: normal
+  color: #000
+  word-wrap: normal
+  display: block
+  margin-block-start: 0.67em
+  margin-block-end: 0.67em
+  margin-inline-start: 0px
+  margin-inline-end: 0px
+
+h4
+  font-size: 1.5em
+  line-height: 1.5em
+  word-wrap: normal
+  display: block
+  margin-block-start: 1.33em
+  margin-block-end: 1.33em
+  margin-inline-start: 0px
+  margin-inline-end: 0px
 
 .content .taglist
   list-style: none
@@ -48,5 +88,3 @@ a
 
 .margin-top-0
   margin-top: 0 !important
-
-@import "~bulma"

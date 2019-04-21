@@ -9,17 +9,18 @@
 
 .title_container {
     color: white;
-    padding: 0.5rem;
+    padding-top: 5px;
 }
 
 .title {
     color: black !important;
-    font-size: 2rem;
+    font-size: 2.5rem;
     background-color: #ffffff;
     border: 1px solid black !important;
     width: 400px;
     margin: 5px;
     padding: 5px;
+    padding-bottom: 0;
     opacity: 0.9;
     line-height: 110%;
     font-weight: normal;
@@ -27,7 +28,7 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
-    height: 50px;
+    height: 44px;
 }
 
 .title:link, .title:visited, .title:hover, .title:active {
@@ -74,6 +75,7 @@
 
 .navBar {
     align-content: center;
+    margin-top: 15px;
 }
 
 .navBarOption {

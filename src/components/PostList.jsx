@@ -13,7 +13,7 @@ export default class IndexPage extends React.Component {
       <section className="section">
         <div className="container">
           <section className="content">
-            <h1 className="has-text-weight-bold is-size-2">WELCOME TO THE 1947PROJECT</h1>
+            <h1 className={`has-text-weight-bold is-size-2 ${styles.title}`}>WELCOME TO THE 1947PROJECT</h1>
             <p>
               Gentle reader, welcome to 1947project.
               The site you’re visiting contains two years’ worth of blogging the crimes and oddities of 1907 and 1927,
@@ -63,7 +63,7 @@ export default class IndexPage extends React.Component {
                   {post.title}
                 </Link>
               </div>
-              <p className="entry-meta">
+              <p className={`entry-meta ${styles.date}`}>
                 {post.date}
               </p>
               <div className="entry-content">

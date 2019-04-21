@@ -1,0 +1,83 @@
+.icon {
+    color: black;
+    font-size: 1.5rem;
+}
+
+.circleIcon {
+    color: white;
+    align-content: center;
+}
+
+.icon:hover {
+    opacity: 0.7;
+}
+
+.socialMediaButtonRow {
+    padding: 1.5rem;
+    width: 215px;
+    margin: 0 auto;
+}
+
+.iconButton {
+    margin-right: 1.5rem;
+}
+
+.footer {
+    background-color: black;
+    position: relative;
+    margin-top: -180px;
+    /* negative value of footer height */
+    height: 170px;
+    clear: both;
+    align-content: center;
+    margin: 0 auto;
+}
+
+.centering {
+    width: 532px;
+    margin: 0 auto;
+}
+
+.navBar {
+    margin-bottom: 10px;
+}
+
+.navBarOption {
+    margin-right: 3rem;
+}
+
+.navParOption::after {
+    margin-right: 0;
+}
+
+.content {
+    width: 1064px;
+    margin: 0 auto;
+    align-content: center;
+}
+
+.copyright {
+    width: 266px;
+    margin: 0 auto;
+}
+
+.scrollToTop {
+    width: 133px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.arrowButton {
+    text-decoration: none;
+    background-color: #fc0;
+    color: #5f4b01 !important;
+    font-size: 1rem;
+    padding: 5px 5px 5px 5px;
+    line-height: 60%;
+    display: inline-block;
+    min-width: 30px;
+    min-height: 18px;
+    text-align: center;
+    border-radius: 10em;
+    border-style: none;
+}

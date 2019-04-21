@@ -2,11 +2,11 @@ import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import styles from "./Navbar.module.css"
 
-library.add(faFacebookF, faTwitter, faYoutube, faCircle)
+library.add(faFacebookF, faTwitter, faYoutube, faCircle, faArrowUp)
 
 const NavBar = () => (
   <StaticQuery

@@ -1,4 +1,10 @@
-
+.title {
+    margin: 0 0 15px 0;
+    padding: 0;
+    font-size: 320%;
+    line-height: 110%;
+    text-transform: uppercase;
+}
 
 .post_meta {
     margin: 0;
@@ -17,4 +23,8 @@
 
 .inLine_Link {
     color: #F9966B;
+}
+
+.date {
+    margin-top: 0;
 }
