@@ -6,7 +6,7 @@ import styles from "./PostList.module.css"
 export default class IndexPage extends React.Component {
   render() {
     const { posts } = this.props
-
+    
     return (
       <section className="section">
         <div className="container">
@@ -41,7 +41,8 @@ export default class IndexPage extends React.Component {
                   {post.author.name}
                 </Link>
                 {` / `}
-                {post.categories.map((category, index) => {
+                { post.categories ? 
+                  post.categories.map((category, index) => {
                   let comma = ""
                   if (index > 0) {
                     comma = ", "
@@ -53,8 +54,8 @@ export default class IndexPage extends React.Component {
                       {category.name}
                     </Link>
                   </span>
-                  )}
-                )}
+                  )}) : null
+                }
               </div>
               <div>
                 <Link className={`${styles.post_title} ${styles.inLine_Link}`} to={`/${post.slug}`} dangerouslySetInnerHTML={{ __html: post.title }}/>
