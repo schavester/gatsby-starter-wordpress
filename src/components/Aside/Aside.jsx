@@ -4,6 +4,8 @@ import styles from './Aside.module.css'
 import esotouriclogo from '../../img/esotouriclogo.png'
 import keptGirl from '../../img/keptGirl.jpg'
 import TagCloudComponent from './TagCloud'
+import Archive from './Archive'
+import Topics from './Topics'
 
 const Aside = () => (
     <StaticQuery
@@ -54,11 +56,13 @@ const Aside = () => (
                 <h4 className={styles.widgetTitle}>
                 Archive
                 </h4>
+                <Archive/>
             </div>
             <div className={styles.widget}>
                 <h4 className={styles.widgetTitle}>
                 Topics
                 </h4>
+                <Topics/>
             </div>
         </div>
       )}
