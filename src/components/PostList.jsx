@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable no-unused-vars */
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
@@ -7,7 +5,7 @@ import styles from "./PostList.module.css"
 
 export default class IndexPage extends React.Component {
   render() {
-    const { posts, title } = this.props
+    const { posts } = this.props
 
     return (
       <section className="section">
@@ -59,9 +57,7 @@ export default class IndexPage extends React.Component {
                 )}
               </div>
               <div>
-                <Link className={`${styles.post_title} ${styles.inLine_Link}`} to={post.slug}>
-                  {post.title}
-                </Link>
+                <Link className={`${styles.post_title} ${styles.inLine_Link}`} to={`/${post.slug}`} dangerouslySetInnerHTML={{ __html: post.title }}/>
               </div>
               <p className={`entry-meta ${styles.date}`}>
                 {post.date}
@@ -82,8 +78,7 @@ export default class IndexPage extends React.Component {
 }
 
 IndexPage.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string,
+  posts: PropTypes.arrayOf(PropTypes.object)
 }
 
 export const pageQuery = graphql`

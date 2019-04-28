@@ -44,7 +44,7 @@ const Pagination = ({ pageContext }) => {
         </Link>
         {
           pages.map((pageIndex) => (
-            <Link to={`/page/${pageIndex}`} className={pageIndex === currentPage ? styles.linkCurrent : styles.link}>
+            <Link key={pageIndex} to={`/page/${pageIndex}`} className={pageIndex === currentPage ? styles.linkCurrent : styles.link}>
               {pageIndex}
             </Link>
           ))

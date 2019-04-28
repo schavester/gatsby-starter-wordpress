@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import Navbar from './Navbar'
-import Aside from './Aside'
+import Aside from './Aside/Aside'
 import Footer from './Footer'
 import './all.sass'
 import styles from './Layout.module.css'

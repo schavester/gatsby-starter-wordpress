@@ -1,0 +1,8 @@
+.tag span {
+    transition: color 1s ease;
+    color: #F9966B
+}
+
+.tag span:hover {
+    color: #990012
+}
