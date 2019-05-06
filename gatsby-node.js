@@ -8,9 +8,8 @@ const { paginate } = require('gatsby-awesome-pagination')
 const getOnlyPublished = edges =>
   _.filter(edges, ({ node }) => node.status === 'publish')
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = ({ actions, graphql }) => { // Pages Begin
   const { createPage } = actions
-
   return graphql(`
     {
       allWordpressPage {
@@ -24,7 +23,7 @@ exports.createPages = ({ actions, graphql }) => {
       }
     }
   `)
-    .then(result => {
+    .then(result => { // Pages End
       if (result.errors) {
         result.errors.forEach(e => console.error(e.toString()))
         return Promise.reject(result.errors)
@@ -53,7 +52,7 @@ exports.createPages = ({ actions, graphql }) => {
         })
       })
     })
-    .then(() => {
+    .then(() => { // Posts Begin
       return graphql(`
         {
           allWordpressPost {
@@ -68,7 +67,7 @@ exports.createPages = ({ actions, graphql }) => {
         }
       `)
     })
-    .then(result => {
+    .then(result => { // Posts End
       if (result.errors) {
         result.errors.forEach(e => console.error(e.toString()))
         return Promise.reject(result.errors)
@@ -105,7 +104,7 @@ exports.createPages = ({ actions, graphql }) => {
         component: blogTemplate,
       })
     })
-    .then(() => {
+    .then(() => { // Categories Begin
       return graphql(`
         {
           allWordpressCategory(filter: { count: { gt: 0 } }) {
@@ -120,7 +119,7 @@ exports.createPages = ({ actions, graphql }) => {
         }
       `)
     })
-    .then(result => {
+    .then(result => { // Categories End
       if (result.errors) {
         result.errors.forEach(e => console.error(e.toString()))
         return Promise.reject(result.errors)
@@ -131,7 +130,7 @@ exports.createPages = ({ actions, graphql }) => {
       // Create a Gatsby page for each WordPress Category
       _.each(result.data.allWordpressCategory.edges, ({ node: cat }) => {
         createPage({
-          path: `/categories/${cat.slug}/`,
+          path: `/category/${cat.slug}/`,
           component: categoriesTemplate,
           context: {
             name: cat.name,
@@ -140,7 +139,7 @@ exports.createPages = ({ actions, graphql }) => {
         })
       })
     })
-    .then(() => {
+    .then(() => { // Tags Begin
       return graphql(`
         {
           allWordpressTag(filter: { count: { gt: 0 } }) {
@@ -155,8 +154,7 @@ exports.createPages = ({ actions, graphql }) => {
         }
       `)
     })
-
-    .then(result => {
+    .then(result => { // Tags End
       if (result.errors) {
         result.errors.forEach(e => console.error(e.toString()))
         return Promise.reject(result.errors)
@@ -167,7 +165,7 @@ exports.createPages = ({ actions, graphql }) => {
       // Create a Gatsby page for each WordPress tag
       _.each(result.data.allWordpressTag.edges, ({ node: tag }) => {
         createPage({
-          path: `/tags/${tag.slug}/`,
+          path: `/tag/${tag.slug}/`,
           component: tagsTemplate,
           context: {
             name: tag.name,
@@ -176,27 +174,29 @@ exports.createPages = ({ actions, graphql }) => {
         })
       })
     })
-    .then(() => {
+    .then(() => { // Authors Begin
       return graphql(`
         {
-          allWordpressWpUsers {
+          allWordpressWpUsers(filter: {name: {ne: "rss"}}) {
             edges {
               node {
-                id
-                slug
+                name
               }
             }
           }
         }
       `)
     })
-    .then(result => {
+    .then(result => { // Authors End
       if (result.errors) {
         result.errors.forEach(e => console.error(e.toString()))
         return Promise.reject(result.errors)
       }
 
       const authorTemplate = path.resolve(`./src/templates/author.js`)
+
+      // Filter the pages based on author
+      // then use the remaining pages to build the endpoint
 
       _.each(result.data.allWordpressWpUsers.edges, ({ node: author }) => {
         createPage({

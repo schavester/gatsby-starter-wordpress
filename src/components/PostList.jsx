@@ -5,34 +5,43 @@ import styles from "./PostList.module.css"
 
 export default class IndexPage extends React.Component {
   render() {
-    const { posts } = this.props
-    
+    const { posts, altTitle } = this.props
+
     return (
       <section className="section">
         <div className="container">
           <section className="content">
-            <h1 className={`has-text-weight-bold is-size-2 ${styles.title}`}>WELCOME TO THE 1947PROJECT</h1>
-            <p>
-              Gentle reader, welcome to 1947project.
-              The site you’re visiting contains two years’ worth of blogging the crimes and oddities of 1907 and 1927,
-              plus occasional fresh historical Los Angeles inquiries, among them Nathan Marsak’s L.A. Noire gameplay blog.
-              If you’re looking for the original 1947project and crimes of that wild post-war year, click
-              <a className={styles.inLine_Link} href="http://1947project.blogspot.com"> here</a>
-              .
-            </p>
-            <p>
-              There are two other time travel blogs in the 1947project stable:
-              On Bunker Hill is a house-by-house survey, exploring the great lost downtown neighborhood of Bunker Hill from the 1880s to the 2000s.
-              Join us
-              <a className={styles.inLine_Link} href="https://www.onbunkerhill.org/"> On Bunker Hill </a>
-              to meet the people, homes and peculiarities that called the hill their own.
-              Can’t get enough of historic L.A. oddities? Then visit our other blog
-              <a className={styles.inLine_Link} href="https://insroland.org/"> In SRO Land </a>
-              , lost lore of the historic core.
-              Or for that personal touch, join us on an
-              <a className={styles.inLine_Link} href="https://esotouric.com/"> Esotouric </a>
-              bus adventure into the secret heart of Los Angeles.
-            </p>
+            {
+              altTitle ? (
+                <h1 className={`has-text-weight-bold is-size-2 ${styles.title}`}>
+                  {altTitle}
+                </h1>
+              ) : (
+                <React.Fragment>
+                  <h1 className={`has-text-weight-bold is-size-2 ${styles.title}`}>WELCOME TO THE 1947PROJECT</h1>
+                  <p>
+                    Gentle reader, welcome to 1947project.
+                    The site you’re visiting contains two years’ worth of blogging the crimes and oddities of 1907 and 1927,
+                    plus occasional fresh historical Los Angeles inquiries, among them Nathan Marsak’s L.A. Noire gameplay blog.
+                    If you’re looking for the original 1947project and crimes of that wild post-war year, click
+                    <a className={styles.inLine_Link} href="http://1947project.blogspot.com"> here</a>
+                    .
+                  </p>
+                  <p>
+                    There are two other time travel blogs in the 1947project stable:
+                    On Bunker Hill is a house-by-house survey, exploring the great lost downtown neighborhood of Bunker Hill from the 1880s to the 2000s.
+                    Join us
+                    <a className={styles.inLine_Link} href="https://www.onbunkerhill.org/"> On Bunker Hill </a>
+                    to meet the people, homes and peculiarities that called the hill their own.
+                    Can’t get enough of historic L.A. oddities? Then visit our other blog
+                    <a className={styles.inLine_Link} href="https://insroland.org/"> In SRO Land </a>
+                    , lost lore of the historic core.
+                    Or for that personal touch, join us on an
+                    <a className={styles.inLine_Link} href="https://esotouric.com/"> Esotouric </a>
+                    bus adventure into the secret heart of Los Angeles.
+                  </p>
+                </React.Fragment>
+              )}
           </section>
           {posts.map(({ node: post }) => (
             <div className="content" key={post.id}>
@@ -55,6 +64,25 @@ export default class IndexPage extends React.Component {
                     </Link>
                   </span>
                   )}) : null
+                }
+                {` / `}
+                {
+                  post.tags ? 
+                  post.tags.map((tag, index) => {
+                    let comma = ""
+                    if (index > 0) {
+                      comma = ", "
+                    }
+                    return (
+                      <span key={`${post.id}-${tag.id}`}>
+                        {comma}
+                        <Link className={styles.inLine_Link} to={`/tag/${tag.slug}`}>
+                          {tag.name}
+                        </Link>
+                      </span>
+                    )
+                  }) : null
+                  
                 }
               </div>
               <div>
@@ -95,6 +123,11 @@ export const pageQuery = graphql`
       }
     }
     categories {
+      id
+      name
+      slug
+    }
+    tags {
       id
       name
       slug

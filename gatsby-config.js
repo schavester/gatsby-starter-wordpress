@@ -18,7 +18,7 @@ module.exports = {
 		      htaccess_user: "rest",
 		      htaccess_pass: "8JhYLZ83t7aBQ",
 		      htaccess_sendImmediately: false
-    					}	
+    		}	
             },
         },
         'gatsby-plugin-sharp',

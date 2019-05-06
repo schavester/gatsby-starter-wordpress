@@ -1,0 +1,10 @@
+.card {
+    width: 22.6%;
+    float: left;
+    text-align: center;
+    font-size: .9em;
+    line-height: 1.7;
+    margin-left: 0;
+    margin-bottom: 50px;
+    height: 100px;
+}
