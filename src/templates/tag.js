@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import PostList from '../components/PostList'
+import Layout from '../components/Layout/Layout'
+import PostList from '../components/PostList/PostList'
 
 const Tag = props => {
   const { data, pageContext } = props

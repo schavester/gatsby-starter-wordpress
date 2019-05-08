@@ -1,10 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import Navbar from './Navbar'
-import Aside from './Aside/Aside'
-import Footer from './Footer'
-import './all.sass'
+import '../all.sass'
+import Navbar from '../Navigation/NavBar/Navbar'
+import Aside from '../Aside/Aside'
+import Footer from '../Footers/PageFooter/Footer'
 import styles from './Layout.module.css'
 
 const TemplateWrapper = ({ children }) => (

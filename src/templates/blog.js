@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import PostList from '../components/PostList'
-import Pagination from '../components/Pagination'
+import Layout from '../components/Layout/Layout'
+import PostList from '../components/PostList/PostList'
+import Pagination from '../components/Navigation/Pagination/Pagination'
 
 export default class IndexPage extends React.Component {
   render() {
     const { data, pageContext } = this.props
     const { edges: posts } = data.allWordpressPost
-
+    
     return (
       <Layout>
         <PostList posts={posts} title="Latest posts" />

@@ -1,19 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from "gatsby";
 import styles from './Archive.module.css'
-
-const months = ["January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December"]
+import { months } from '../Helpers/DateMappings'
 
 function translateDataForDisplay(data) {
     const counts = {}

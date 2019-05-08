@@ -2,29 +2,9 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
+import { months } from '../../Helpers/DateMappings'
+import { slugToNameMapping } from '../../Helpers/AuthorMappings'
 import styles from './AuthorFooter.module.css'
-
-const authorMappings = {
-    "kimcooper": "Kim Cooper",
-    "nathanmarsak": "Nathan Marsak",
-    "larryharnish": "Larry Harnish",
-    "joanrenner": "Joan Renner",
-    "marymccoy": "Mary McCoy",
-    "lynn-peril": "Lynn Peril"
-}
-
-const months = ["January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December"]
 
 const AuthorFooter = (slug) => (
     <StaticQuery
@@ -45,7 +25,7 @@ const AuthorFooter = (slug) => (
         }
       `}
       render={data => {
-        const filteredData = data.allWordpressPost.edges.filter(post => post.node.author.name === authorMappings[slug.slug])
+        const filteredData = data.allWordpressPost.edges.filter(post => post.node.author.name === slugToNameMapping[slug.slug])
         return (
             <div>
                 {

@@ -1,7 +1,9 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
 import styles from "./PostList.module.css"
+import { PostHeader } from '../Headers/PostHeader/PostHeader'
+
 
 export default class IndexPage extends React.Component {
   render() {
@@ -44,62 +46,18 @@ export default class IndexPage extends React.Component {
               )}
           </section>
           {posts.map(({ node: post }) => (
-            <div className="content" key={post.id}>
-              <div className={styles.post_meta}>
-                <Link className={styles.inLine_Link} to={`/author/${post.author.slug}`}>
-                  {post.author.name}
-                </Link>
-                {` / `}
-                { post.categories ? 
-                  post.categories.map((category, index) => {
-                  let comma = ""
-                  if (index > 0) {
-                    comma = ", "
-                  }
-                  return (
-                  <span key={`${post.id}-${category.id}`}>
-                    {comma}
-                    <Link className={styles.inLine_Link} to={`/category/${category.slug}`}>
-                      {category.name}
-                    </Link>
-                  </span>
-                  )}) : null
-                }
-                {` / `}
-                {
-                  post.tags ? 
-                  post.tags.map((tag, index) => {
-                    let comma = ""
-                    if (index > 0) {
-                      comma = ", "
-                    }
-                    return (
-                      <span key={`${post.id}-${tag.id}`}>
-                        {comma}
-                        <Link className={styles.inLine_Link} to={`/tag/${tag.slug}`}>
-                          {tag.name}
-                        </Link>
-                      </span>
-                    )
-                  }) : null
-                  
-                }
-              </div>
-              <div>
-                <Link className={`${styles.post_title} ${styles.inLine_Link}`} to={`/${post.slug}`} dangerouslySetInnerHTML={{ __html: post.title }}/>
-              </div>
-              <p className={`entry-meta ${styles.date}`}>
-                {post.date}
-              </p>
-              <div className="entry-content">
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: post.content
-                  }}
-                />
-              </div>
-            </div>
-          ))}
+              <PostHeader
+                key={post.id}
+                id={post.id}
+                content={post.content}
+                categories={post.categories}
+                tags={post.tags}
+                title={post.title}
+                date={post.date}
+                slug={post.slug}
+                author={post.author}
+              />
+            ))}
         </div>
       </section>
     )
