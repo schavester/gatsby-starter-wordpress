@@ -12,7 +12,13 @@ export const PostHeader = ({
     date,
     slug,
     author
-}) => (
+}) => {
+    const convertedDate = new Date(date)
+    const year = convertedDate.getFullYear()
+    const month = convertedDate.getMonth() + 1
+    const day = convertedDate.getDay() + 1
+
+    return (
     <div className="content" key={`${id}-${title}`}>
         <div className={styles.post_meta}>
             <Link className={styles.inLine_Link} to={`/${tagToAuthorMapping[author.slug]}`}>
@@ -54,7 +60,7 @@ export const PostHeader = ({
             }
         </div>
         <div>
-            <Link className={`${styles.post_title} ${styles.inLine_Link}`} to={`/${slug}`} dangerouslySetInnerHTML={{ __html: title }}/>
+            <Link className={`${styles.post_title} ${styles.inLine_Link}`} to={`/${year}/${month}/${day}/${slug}`} dangerouslySetInnerHTML={{ __html: title }}/>
         </div>
         <p className={`entry-meta ${styles.date}`}>
             {date}
@@ -67,6 +73,7 @@ export const PostHeader = ({
         />
         </div>
     </div>
-)
+    )
+}
 
 export default PostHeader

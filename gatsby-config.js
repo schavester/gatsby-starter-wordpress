@@ -14,6 +14,9 @@ module.exports = {
                 protocol: 'http',
                 useACF: false,
                 verboseOutput: true,
+                includeRoutes: [
+                    '/*/*/menus'
+                ],
 			auth: {
 		      htaccess_user: "rest",
 		      htaccess_pass: "8JhYLZ83t7aBQ",

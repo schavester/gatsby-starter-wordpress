@@ -61,6 +61,7 @@ exports.createPages = ({ actions, graphql }) => { // Pages Begin
                 id
                 slug
                 status
+                date
               }
             }
           }
@@ -85,9 +86,14 @@ exports.createPages = ({ actions, graphql }) => { // Pages Begin
 
       // Iterate over the array of posts
       _.each(posts, ({ node: post }) => {
+        const date = new Date(post.date)
+        const year = date.getFullYear()
+        const month = date.getMonth() + 1
+        const day = date.getDay() + 1
+
         // Create the Gatsby page for this WordPress post
         createPage({
-          path: `/${post.slug}/`,
+          path: `${year}/${month}/${day}/${post.slug}/`,
           component: postTemplate,
           context: {
             id: post.id,
@@ -174,40 +180,76 @@ exports.createPages = ({ actions, graphql }) => { // Pages Begin
         })
       })
     })
-    .then(() => { // Authors Begin
+    .then(() => { // Year Begins
       return graphql(`
-        {
-          allWordpressWpUsers(filter: {name: {ne: "rss"}}) {
-            edges {
-              node {
-                name
-              }
+      {
+        allWordpressPost {
+          edges {
+            node {
+              id
+              slug
+              status
+              date
             }
           }
         }
-      `)
+      }
+    `)
     })
-    .then(result => { // Authors End
+    .then(result => { // Year End
       if (result.errors) {
         result.errors.forEach(e => console.error(e.toString()))
         return Promise.reject(result.errors)
       }
 
-      const authorTemplate = path.resolve(`./src/templates/author.js`)
+      const postTemplate = path.resolve(`./src/templates/post.js`)
+      const blogTemplate = path.resolve(`./src/templates/blog.js`)
 
-      // Filter the pages based on author
-      // then use the remaining pages to build the endpoint
+      // In production builds, filter for only published posts.
+      const allPosts = result.data.allWordpressPost.edges
+      const posts =
+        process.env.NODE_ENV === 'production'
+          ? getOnlyPublished(allPosts)
+          : allPosts
 
-      _.each(result.data.allWordpressWpUsers.edges, ({ node: author }) => {
+      // Iterate over the array of posts
+      _.each(posts, ({ node: post }) => {
+        const date = new Date(post.date)
+        const year = date.getFullYear()
+        const month = date.getMonth() + 1
+        const day = date.getDay() + 1
+
+        // Create the Gatsby page for this WordPress post
         createPage({
-          path: `/author/${author.slug}`,
-          component: authorTemplate,
+          path: `${year}/${month}/${day}/${post.slug}/`,
+          component: postTemplate,
           context: {
-            id: author.id,
+            id: post.id,
           },
         })
       })
+
+      // Create a paginated blog, e.g., /, /page/2, /page/3
+      paginate({
+        createPage,
+        items: posts,
+        itemsPerPage: 10,
+        pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? `/` : `/page`),
+        component: blogTemplate,
+      })
     })
+    .then(() => { // Month Begins
+      
+    })
+    .then(result => { // Month End
+
+    }) 
+    .then(() => { // Day Begins
+
+    })
+    .then(result => { // Day End
+
+    })     
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

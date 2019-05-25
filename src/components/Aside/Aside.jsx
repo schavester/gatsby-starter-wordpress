@@ -17,6 +17,7 @@ const Aside = () => (
                         id
                         title
                         slug
+                        date
                     }
                 }
             }
@@ -41,9 +42,15 @@ const Aside = () => (
                 Recent Posts
                 </h4>
                 {
-                    data.allWordpressPost.edges.map((post) => (
-                        <Link className={styles.recentPost} key={post.node.id} to={`/${post.node.slug}`} dangerouslySetInnerHTML={{ __html: post.node.title }}/>
-                    ))
+                    data.allWordpressPost.edges.map((post) => {
+                        const date = new Date(post.node.date)
+                        const year = date.getFullYear()
+                        const month = date.getMonth() + 1
+                        const day = date.getDay() + 1
+                        return (
+                            <Link className={styles.recentPost} key={post.node.id} to={`/${year}/${month}/${day}/${post.node.slug}`} dangerouslySetInnerHTML={{ __html: post.node.title }}/>
+                        )
+                    })
                 }
             </div>
             <div className={styles.widget}>

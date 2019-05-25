@@ -4,44 +4,34 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout/Layout'
 import { PostHeader } from '../components/Headers/PostHeader/PostHeader';
+import Disqus from '../components/Disqus/Disqus'
 
 export const BlogPostTemplate = ({
-  id,
-  content,
-  categories,
-  tags,
-  title,
-  date,
-  slug,
-  author,
+  postNode
 }) => (
   <div className="content">
     {
       <PostHeader 
-        id={id}
-        content={content}
-        categories={categories}
-        tags={tags}
-        title={title}
-        date={date}
-        slug={slug}
-        author={author}
+        id={postNode.id}
+        content={postNode.content}
+        categories={postNode.categories}
+        tags={postNode.tags}
+        title={postNode.title}
+        date={postNode.date}
+        slug={postNode.slug}
+        author={postNode.author}
       />
     }
     <div className="entry-content">
       <div
         dangerouslySetInnerHTML={{
-          __html: content
+          __html: postNode.content
         }}
       />
     </div>
+    <Disqus postNode={postNode} />
   </div>
 )
-
-BlogPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  title: PropTypes.string,
-}
 
 const BlogPost = ({ data }) => {
   const { wordpressPost: post } = data
@@ -50,14 +40,7 @@ const BlogPost = ({ data }) => {
     <Layout>
       <Helmet title={`${post.title} | Blog`} />
       <BlogPostTemplate
-        content={post.content}
-        categories={post.categories}
-        tags={post.tags}
-        title={post.title}
-        date={post.date}
-        author={post.author}
-        id={post.id}
-        slug={post.slug}
+        postNode={post}
       />
     </Layout>
   )
