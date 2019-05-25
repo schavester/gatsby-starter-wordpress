@@ -4,14 +4,16 @@ import DisqusThread from './DisqusThread'
 class Disqus extends Component {
   render() {
     const { postNode } = this.props
-    const url = `${window.location.protocol}/${window.location.host}/${postNode.slug}`
-    console.log(url)
+    let url = ""
+    if (typeof window !== 'undefined') {
+      url = `${window.location.protocol}/${window.location.host}/${postNode.slug}`
+    }
     return (
       <div>
         <DisqusThread
           id={postNode.id}
           title={postNode.title}
-          path={postNode.slug}
+          path={url}
         />
       </div>
     )
