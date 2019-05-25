@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SHORTNAME = '1947project-1';
-const WEBSITE_URL = `${window.location.protocol}/${window.location.host}`;
 
 function renderDisqus() {
   if (window.DISQUS === undefined) {
@@ -37,7 +36,7 @@ class DisqusThread extends React.Component{
       window.disqus_shortname = SHORTNAME;
       window.disqus_identifier = id;
       window.disqus_title = title;
-      window.disqus_url = WEBSITE_URL + path;
+      window.disqus_url = path;
     }
 
     return <div {...other} id="disqus_thread" />;
