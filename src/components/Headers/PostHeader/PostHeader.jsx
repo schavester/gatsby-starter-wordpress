@@ -16,10 +16,10 @@ export const PostHeader = ({
     const convertedDate = new Date(date)
     const year = convertedDate.getFullYear()
     const month = convertedDate.getMonth() + 1
-    const day = convertedDate.getDay() + 1
+    const day = convertedDate.getDate()
 
     return (
-    <div className="content" key={`${id}-${title}-${author}`}>
+    <div className="content" key={`${id}-${title}-${author.id}`}>
         <div className={styles.post_meta}>
             <Link className={styles.inLine_Link} to={`/${tagToAuthorMapping[author.slug]}`}>
                 {author.name}

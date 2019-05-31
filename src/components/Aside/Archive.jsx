@@ -37,10 +37,7 @@ const Archive = () => (
             const groupedData = translateDataForDisplay(data.allWordpressPost.edges)
             return (
                 Object.keys(groupedData).map((key) => {
-                    let monthNumForRoute = (groupedData[key].month + 1).toString()
-                    if (monthNumForRoute < 10) {
-                        monthNumForRoute = monthNumForRoute.padStart(2, '0')
-                    }
+                    const monthNumForRoute = (groupedData[key].month + 1).toString()
                     return (
                         <div key={key} className={styles.link}>
                             <Link className={styles.date} to={`/${groupedData[key].year}/${monthNumForRoute}`} title={key}>

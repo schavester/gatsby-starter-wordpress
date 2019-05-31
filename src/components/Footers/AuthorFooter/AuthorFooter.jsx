@@ -31,7 +31,7 @@ const AuthorFooter = (slug) => (
                 {
                     filteredData.map((val) => {
                         const date = new Date(val.node.date)
-                        const dateString = `${months[date.getMonth()]} ${(date.getDay() + 1)}, ${date.getFullYear()}`
+                        const dateString = `${months[date.getMonth()]} ${(date.getDate())}, ${date.getFullYear()}`
                         return (
                             <div key={val.node.slug} className={styles.card}>
                                 <Link

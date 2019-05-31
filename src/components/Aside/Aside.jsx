@@ -46,7 +46,7 @@ const Aside = () => (
                         const date = new Date(post.node.date)
                         const year = date.getFullYear()
                         const month = date.getMonth() + 1
-                        const day = date.getDay() + 1
+                        const day = date.getDate()
                         return (
                             <Link className={styles.recentPost} key={post.node.id} to={`/${year}/${month}/${day}/${post.node.slug}`} dangerouslySetInnerHTML={{ __html: post.node.title }}/>
                         )
