@@ -9,7 +9,7 @@ export default class IndexPage extends React.Component {
   render() {
     const { data, pageContext } = this.props
     const { edges: posts } = data.allWordpressPost
-    
+
     return (
       <Layout>
         <PostList posts={posts} title="Latest posts" />

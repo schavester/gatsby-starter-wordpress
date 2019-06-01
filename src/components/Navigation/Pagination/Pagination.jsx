@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styles from "./Pagination.module.css"
 
-const Pagination = ({ pageContext }) => {
+const Pagination = ({ pageContext, pathPrefix }) => {
   const { previousPagePath, nextPagePath, numberOfPages, pageNumber } = pageContext
 
   if (numberOfPages <= 1) return null
@@ -36,7 +36,7 @@ const Pagination = ({ pageContext }) => {
 
   return (
     <nav>
-        <Link to="/" className={currentPage === 1 ? styles.linkTextDisabled : styles.linkText}>
+        <Link to={pathPrefix} className={currentPage === 1 ? styles.linkTextDisabled : styles.linkText}>
           First
         </Link>
         <Link to={previousPagePath} rel="prev" className={currentPage === 1 ? styles.linkTextDisabled : styles.linkText}>
@@ -44,7 +44,7 @@ const Pagination = ({ pageContext }) => {
         </Link>
         {
           pages.map((pageIndex) => (
-            <Link key={pageIndex} to={`/page/${pageIndex}`} className={pageIndex === currentPage ? styles.linkCurrent : styles.link}>
+            <Link key={pageIndex} to={pageIndex === 1 ? `${pathPrefix}` : `${pathPrefix}/page/${pageIndex}`} className={pageIndex === currentPage ? styles.linkCurrent : styles.link}>
               {pageIndex}
             </Link>
           ))
@@ -52,7 +52,7 @@ const Pagination = ({ pageContext }) => {
         <Link to={nextPagePath} rel="next" className={currentPage === numberOfPages ? styles.linkTextDisabled : styles.linkText}>
           Next
         </Link>
-        <Link to={`/page/${numberOfPages}`} className={currentPage === numberOfPages ? styles.linkTextDisabled : styles.linkText}>
+        <Link to={`${pathPrefix}/page/${numberOfPages}`} className={currentPage === numberOfPages ? styles.linkTextDisabled : styles.linkText}>
           Last
         </Link>
     </nav>
