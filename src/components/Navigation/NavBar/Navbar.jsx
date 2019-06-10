@@ -65,7 +65,6 @@ const NavBar = () => (
               <Link className={styles.navBarOption} to="/1947project-mission-statement">About</Link>
               <Link className={styles.navBarOption} to="/authors">Authors</Link>
               <Link className={styles.navBarOption} to="/timetravelblogs">Our Time Travel Blogs</Link>
-              <Link className={styles.navBarOption} to="/blog">Blog</Link>
               <button type="button" className={styles.navIcon} onClick={showNavDropdown}>
                 <FontAwesomeIcon icon={["fas", "bars"]} />
               </button>
