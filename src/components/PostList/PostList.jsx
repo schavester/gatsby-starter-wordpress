@@ -10,7 +10,7 @@ export default class IndexPage extends React.Component {
     const { posts, altTitle } = this.props
 
     return (
-      <section className="section">
+      <section className={styles.section}>
         <div className="container">
           <section className="content">
             {

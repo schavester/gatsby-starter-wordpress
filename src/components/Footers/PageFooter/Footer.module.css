@@ -81,3 +81,33 @@
     border-radius: 10em;
     border-style: none;
 }
+
+@media screen and (max-width: 700px) {
+    .copyright {
+        margin-left: 7rem;
+        width: auto;
+    }
+
+    .navBar {
+        width: auto;
+        margin-left: 2rem;
+    }
+
+    .arrowButton {
+        width: auto;
+        margin-left: 3rem;
+    }
+
+    .socialMediaButtonRow {
+        width: auto;
+        margin-left: 6.5rem;
+    }
+
+    .content {
+        width: auto;
+    }
+
+    .centering {
+        width: auto;
+    }
+}

@@ -38,3 +38,9 @@
     min-height: 18px;
 }
 
+@media screen and (max-width: 700px) {
+    .aside {
+        display: none;
+    }
+}
+

@@ -4,6 +4,8 @@
 
 .header_img {
     background-image: url("../../../img/TitleBackground.jpg");
+    background-size: 15.5rem;
+    background-repeat: repeat;
     height: 15rem;
 }
 
@@ -16,7 +18,7 @@
     color: black !important;
     font-size: 2.5rem;
     background-color: #ffffff;
-    border: 1px solid black !important;
+    border: 1px solid black;
     width: 400px;
     margin: 5px;
     padding: 5px;
@@ -88,4 +90,85 @@
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 1px;
+}
+
+.navIcon {
+    display: none;
+    margin-left: 50%;
+}
+
+.responsiveHeader {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .navBarOption {
+        display: none;
+    }
+
+    .navIcon {
+        display: block;
+        background-color: #1a1717;
+        border: 1px solid #8d6f00;
+        color: #8d6f00;
+        margin-top: 0.45rem;
+    }
+
+    .responsive {
+        position: relative;
+    }
+
+    .responsive .navIcon {
+        position: absolute;
+        top: 0;
+    }
+
+    .responsive .navBarOption {
+        display: flex;
+        float: none;
+        width: 100%;
+        height: 1rem;
+        border-top: 1px solid #8d6f00;
+    }
+
+    .responsive .navBarOption:first {
+        margin-top: 1rem;
+    }
+
+    .header_img {
+        background-image: none;
+        display: block;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        text-align: left;
+        background-color: #1a1717;
+        height: 7rem;
+        opacity: 0.9;
+    }
+
+    .title {
+        border: none;
+        color: #8d6f00 !important;
+        background-color: transparent;
+        margin: 0;
+        opacity: 1;
+        padding: 0 0 0 4rem;
+    }
+
+    .socialMediaButtonRow {
+        padding: 0 0 0 7rem;
+    }
+
+    .subtitle {
+        display: none;
+    }
+
+    .circleIcon {
+        color: #1a1717;
+    }
+
+    .icon {
+        color: #8d6f00;
+    }
 }
