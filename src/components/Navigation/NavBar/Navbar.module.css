@@ -101,17 +101,23 @@
     display: none;
 }
 
+.mobileNavBarOption {
+    display: none;
+}
+
 @media screen and (max-width: 700px) {
     .navBarOption {
         display: none;
     }
 
     .navIcon {
-        display: block;
+        display: flex;
         background-color: #1a1717;
         border: 1px solid #8d6f00;
         color: #8d6f00;
         margin-top: 0.45rem;
+        margin-right: 50%;
+        float:right;
     }
 
     .responsive {
@@ -121,11 +127,18 @@
     .responsive .navIcon {
         position: absolute;
         top: 0;
+        right: 0;
     }
 
     .responsive .navBarOption {
-        display: flex;
-        float: none;
+        display: block;
+        width: 100%;
+        height: 1rem;
+        border-top: 1px solid #8d6f00;
+    }
+
+    .responsive .mobileNavBarOption {
+        display: block;
         width: 100%;
         height: 1rem;
         border-top: 1px solid #8d6f00;
@@ -144,7 +157,6 @@
         text-align: left;
         background-color: #1a1717;
         height: 7rem;
-        opacity: 0.9;
     }
 
     .title {
@@ -170,5 +182,17 @@
 
     .icon {
         color: #8d6f00;
+    }
+
+    .mobileNavBarOption {
+        background-color: #1a1717;
+        padding: 0.5rem 1rem 0.5rem;
+        margin-right: 0.5rem;
+        color: #8d6f00 !important;
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 1px;
     }
 }

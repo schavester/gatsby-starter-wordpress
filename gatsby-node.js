@@ -282,6 +282,20 @@ exports.createPages = ({ actions, graphql }) => { // Pages Begin
           },
         })
       })
+    })
+    .then(() => { // Creating none wordpress pages
+      const archiveTemplate = path.resolve(`./src/templates/archive.js`)
+      const topicsTemplate = path.resolve(`./src/templates/topics.js`)
+
+      createPage({
+        path: `/archive/`,
+        component: archiveTemplate,
+      })
+
+      createPage({
+        path: `/topics/`,
+        component: topicsTemplate,
+      })
     })  
 }
 
