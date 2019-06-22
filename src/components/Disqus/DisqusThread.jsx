@@ -1,6 +1,5 @@
 import React from 'react';
-
-const SHORTNAME = '1947project-1';
+import { SHORTNAME } from '../../../disqusInfo'
 
 function renderDisqus() {
   if (window.DISQUS === undefined) {
